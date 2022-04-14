@@ -1,9 +1,11 @@
 from django.db import models
 
 # Create your models here.
-
-class Music(models.Model):
-    make = models.CharField(max_length=255)
-    model = models.CharField(max_length=255)
-    year = models.IntegerField()
-    price = models.DecimalField(max_digits=8, decimal_places=2)
+class Song(models.Model):
+    title = models.CharField(max_length=100)
+    artist = models.CharField(max_length=100)
+    album = models.CharField(max_length=100)
+    release_date = models.DateField(null=True, blank=False)
+    genre = models.CharField(max_length=100)
+    likes = models.IntegerField(default=0)
+    youtube_id = models.CharField(max_length=500, default="", blank=True)
